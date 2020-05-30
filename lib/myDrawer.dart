@@ -17,18 +17,18 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Home'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacement(
-                  context, FadeRoute(page: RandomWords()));
-            },
-          ),
-          ListTile(
             title: Text('Burgers'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushReplacement(context, FadeRoute(page: Burgers()));
+              Navigator.pushReplacement(
+                  context, FadeRoute(page: Burgers()));
+            },
+          ),
+          ListTile(
+            title: Text('RamdomWords'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacement(context, FadeRoute(page: RandomWords()));
             },
           ),
           ListTile(

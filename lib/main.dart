@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: Colors.orange),
       initialRoute: '/',
       routes: {
-        '/': (context) => RandomWords(),
+        '/': (context) => Burgers(),
         '/about': (context) => About(),
-        '/burgers': (context) => Burgers(),
+        '/ramdomWords': (context) => RandomWords(),
       },
     );
   }
