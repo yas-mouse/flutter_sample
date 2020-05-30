@@ -65,37 +65,35 @@ class BurgersState extends State<Burgers> {
     List<InkWell> widgets = [];
 
     _json.forEach((element) {
-      widgets.add(
-        InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => BurgerDetail(element)));
-              print("test!");
-            },
-            child:
-              Container(
-                child: Card(
-                    child: Column(children: <Widget>[
-                  Flexible(
-                    child: Image.asset(
-                      'assets/images/${element.imageName}',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(element.title),
-                    subtitle: Text(element.description),
-                  ),
-                ])),
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(5.0, 5.0),
-                    blurRadius: 10.0,
-                  )
-                ]),
+      widgets.add(InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => BurgerDetail(element)));
+          },
+          child: Container(
+            child: Card(
+                child: Column(children: <Widget>[
+              Flexible(
+                  child: Hero(
+                child: Image.asset(
+                  'assets/images/${element.imageName}',
+                  fit: BoxFit.cover,
+                ),
+                tag: 'image_tag_${element.id}',
+              )),
+              ListTile(
+                title: Text(element.title),
+                subtitle: Text(element.description),
+              ),
+            ])),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(5.0, 5.0),
+                blurRadius: 10.0,
               )
-            )
-      );
+            ]),
+          )));
     });
 
     return widgets;
