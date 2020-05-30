@@ -46,40 +46,38 @@ class BurgersState extends State<Burgers> {
   }
 
   _getListData() {
-    List<InkWell> widgets = [];
-
-    _json.forEach((element) {
-      widgets.add(InkWell(
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => BurgerDetail(element)));
-          },
-          child: Container(
-            child: Card(
-                child: Column(children: <Widget>[
-              Flexible(
-                  child: Hero(
-                child: Image.asset(
-                  'assets/images/${element.imageName}',
-                  fit: BoxFit.cover,
+    return _json
+        .map((element) => InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BurgerDetail(element)));
+            },
+            child: Container(
+              child: Card(
+                  child: Column(children: <Widget>[
+                Flexible(
+                    child: Hero(
+                  child: Image.asset(
+                    'assets/images/${element.imageName}',
+                    fit: BoxFit.cover,
+                  ),
+                  tag: 'image_tag_${element.id}',
+                )),
+                ListTile(
+                  title: Text(element.title),
+                  subtitle: Text('¥${element.price}'),
                 ),
-                tag: 'image_tag_${element.id}',
-              )),
-              ListTile(
-                title: Text(element.title),
-                subtitle: Text('¥${element.price}'),
-              ),
-            ])),
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                offset: Offset(5.0, 5.0),
-                blurRadius: 10.0,
-              )
-            ]),
-          )));
-    });
-
-    return widgets;
+              ])),
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(5.0, 5.0),
+                  blurRadius: 10.0,
+                )
+              ]),
+            )))
+        .toList();
   }
 }
