@@ -28,8 +28,7 @@ class BurgersState extends State<Burgers> {
     final parsed = json.decode(loadString).cast<Map<String, dynamic>>();
 
     setState(() {
-      _json =
-          parsed.map<Burger>((json) => Burger.fromJson(json)).toList();
+      _json = parsed.map<Burger>((json) => Burger.fromJson(json)).toList();
     });
   }
 

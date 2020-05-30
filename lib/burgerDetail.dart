@@ -35,10 +35,12 @@ class BurgerDetailState extends State<BurgerDetail> {
           ButtonBar(
             children: <Widget>[
               FlatButton(
+                splashColor: Colors.blue.shade100,
                 child: const Text('Buy Now'),
                 onPressed: () {},
               ),
               FlatButton(
+                splashColor: Colors.blue.shade100,
                 child: const Text('Add to cart'),
                 onPressed: () {},
               ),
