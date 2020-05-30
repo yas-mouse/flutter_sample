@@ -4,22 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/myDrawer.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_sample/burgerDetail.dart';
-
-class BurgerJson {
-  String id;
-  String title;
-  String description;
-  String imageName;
-
-  BurgerJson({this.id, this.title, this.description, this.imageName});
-  factory BurgerJson.fromJson(Map<String, dynamic> parsedJson) {
-    return BurgerJson(
-        id: parsedJson['_id'],
-        title: parsedJson['title'],
-        description: parsedJson['description'],
-        imageName: parsedJson['imageName']);
-  }
-}
+import 'package:flutter_sample/model/burger.dart';
 
 class Burgers extends StatefulWidget {
   @override
@@ -28,7 +13,7 @@ class Burgers extends StatefulWidget {
 
 class BurgersState extends State<Burgers> {
   // jsonデータ
-  List<BurgerJson> _json = [];
+  List<Burger> _json = [];
 
   @override
   void initState() {
@@ -44,7 +29,7 @@ class BurgersState extends State<Burgers> {
 
     setState(() {
       _json =
-          parsed.map<BurgerJson>((json) => BurgerJson.fromJson(json)).toList();
+          parsed.map<Burger>((json) => Burger.fromJson(json)).toList();
     });
   }
 
@@ -83,7 +68,7 @@ class BurgersState extends State<Burgers> {
               )),
               ListTile(
                 title: Text(element.title),
-                subtitle: Text(element.description),
+                subtitle: Text('¥${element.price}'),
               ),
             ])),
             decoration: BoxDecoration(boxShadow: [

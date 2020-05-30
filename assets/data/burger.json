@@ -3,30 +3,35 @@
     "_id": "5ec2746447310af9fe142459",
     "title": "burger1",
     "description": "desc desc desc desc desc desc",
-    "imageName": "b1.jpg"
+    "imageName": "b1.jpg",
+    "price": 300
   },
   {
     "_id": "5ec274640ba7c741095f2e71",
     "title": "burger2",
     "description": "desc desc desc desc desc desc",
-    "imageName": "b2.jpg"
+    "imageName": "b2.jpg",
+    "price": 400
   },
   {
     "_id": "5ec274648890e31ff53adb19",
     "title": "burger3",
     "description": "desc desc desc desc desc desc",
-    "imageName": "b3.jpg"
+    "imageName": "b3.jpg",
+    "price": 400
   },
   {
     "_id": "5ec2746431a0b182a78ebe07",
     "title": "burger4",
     "description": "desc desc desc desc desc desc",
-    "imageName": "b4.jpg"
+    "imageName": "b4.jpg",
+    "price": 500
   },
   {
     "_id": "5ec274642a9f6e2dbfc5c606",
     "title": "burger5",
     "description": "desc desc desc desc desc desc",
-    "imageName": "b5.jpg"
+    "imageName": "b5.jpg",
+    "price": 350
   }
 ]

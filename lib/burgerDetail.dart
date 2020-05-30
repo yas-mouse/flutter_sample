@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/burgers.dart';
+import 'package:flutter_sample/model/burger.dart';
 
 class BurgerDetail extends StatefulWidget {
-  BurgerDetail(this._burgerJson);
-  final BurgerJson _burgerJson;
+  BurgerDetail(this._burger);
+  final Burger _burger;
 
   @override
-  BurgerDetailState createState() => BurgerDetailState(_burgerJson);
+  BurgerDetailState createState() => BurgerDetailState(_burger);
 }
 
 class BurgerDetailState extends State<BurgerDetail> {
-  BurgerDetailState(this._burgerJson);
-  final BurgerJson _burgerJson;
+  BurgerDetailState(this._burger);
+  final Burger _burger;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,27 @@ class BurgerDetailState extends State<BurgerDetail> {
           Flexible(
               child: Hero(
             child: Image.asset(
-              'assets/images/${_burgerJson.imageName}',
+              'assets/images/${_burger.imageName}',
               fit: BoxFit.cover,
             ),
-            tag: 'image_tag_${_burgerJson.id}',
+            tag: 'image_tag_${_burger.id}',
           )),
           ListTile(
-            title: Text(_burgerJson.title),
-            subtitle: Text(_burgerJson.description),
-          )
+            title: Text(_burger.title),
+            subtitle: Text(_burger.description),
+          ),
+          ButtonBar(
+            children: <Widget>[
+              FlatButton(
+                child: const Text('Buy Now'),
+                onPressed: () {},
+              ),
+              FlatButton(
+                child: const Text('Add to cart'),
+                onPressed: () {},
+              ),
+            ],
+          ),
         ])));
   }
 }
