@@ -1,8 +1,9 @@
+import 'dart:async' show Future;
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/myDrawer.dart';
-import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
-import 'dart:convert';
+import 'package:flutter_sample/burgerDetail.dart';
 
 class BurgerJson {
   String id;
@@ -50,7 +51,7 @@ class BurgersState extends State<Burgers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('burgers')),
+        appBar: AppBar(title: Text('Burgers')),
         drawer: MyDrawer(),
         body: GridView.count(
             padding: EdgeInsets.all(4.0),
@@ -61,31 +62,40 @@ class BurgersState extends State<Burgers> {
   }
 
   _getListData() {
-    List<Container> widgets = [];
+    List<InkWell> widgets = [];
 
     _json.forEach((element) {
-      widgets.add(Container(
-        child: Card(
-            child: Column(children: <Widget>[
-          Flexible(
-            child: Image.asset(
-              'assets/images/${element.imageName}',
-              fit: BoxFit.cover,
-            ),
-          ),
-          ListTile(
-            title: Text(element.title),
-            subtitle: Text(element.description),
-          ),
-        ])),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(5.0, 5.0),
-            blurRadius: 10.0,
-          )
-        ]),
-      ));
+      widgets.add(
+        InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BurgerDetail(element)));
+              print("test!");
+            },
+            child:
+              Container(
+                child: Card(
+                    child: Column(children: <Widget>[
+                  Flexible(
+                    child: Image.asset(
+                      'assets/images/${element.imageName}',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(element.title),
+                    subtitle: Text(element.description),
+                  ),
+                ])),
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(5.0, 5.0),
+                    blurRadius: 10.0,
+                  )
+                ]),
+              )
+            )
+      );
     });
 
     return widgets;
