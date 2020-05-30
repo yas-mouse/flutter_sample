@@ -26,7 +26,6 @@ class Burgers extends StatefulWidget {
 }
 
 class BurgersState extends State<Burgers> {
-
   // jsonデータ
   List<BurgerJson> _json = [];
 
@@ -57,15 +56,16 @@ class BurgersState extends State<Burgers> {
             padding: EdgeInsets.all(4.0),
             crossAxisCount: 2,
             childAspectRatio: 1.0,
+            shrinkWrap: true,
             children: _getListData()));
   }
 
   _getListData() {
-    List<Card> widgets = [];
+    List<Container> widgets = [];
 
     _json.forEach((element) {
-      widgets.add(
-        Card(
+      widgets.add(Container(
+        child: Card(
             child: Column(children: <Widget>[
           Flexible(
             child: Image.asset(
@@ -78,7 +78,14 @@ class BurgersState extends State<Burgers> {
             subtitle: Text(element.description),
           ),
         ])),
-      );
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(5.0, 5.0),
+            blurRadius: 10.0,
+          )
+        ]),
+      ));
     });
 
     return widgets;
