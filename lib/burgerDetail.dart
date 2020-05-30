@@ -30,6 +30,7 @@ class BurgerDetailState extends State<BurgerDetail> {
           ListTile(
             title: Text(_burger.title),
             subtitle: Text(_burger.description),
+            trailing: Text('¥${_burger.price}'),
           ),
           ButtonBar(
             children: <Widget>[
