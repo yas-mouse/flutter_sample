@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/about.dart';
+import 'package:flutter_sample/burgers.dart';
 import 'package:flutter_sample/ramdomWords.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -21,6 +22,13 @@ class MyDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.pushReplacement(
                   context, FadeRoute(page: RandomWords()));
+            },
+          ),
+          ListTile(
+            title: Text('Burgers'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacement(context, FadeRoute(page: Burgers()));
             },
           ),
           ListTile(
